@@ -3,17 +3,71 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FF4EF9723C548AA000B8DE3 /* CarouselAnimationFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF4EF9523C548AA000B8DE3 /* CarouselAnimationFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F90C53223C55B1B0082CEA2 /* CarouselAnimationBottomShadowWrapper.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1FF4EFE223C54C8D000B8DE3 /* CarouselAnimationBottomShadowWrapper.swift */; settings = {ATTRIBUTES = (Private, ); }; };
+		1F90C53323C55B1E0082CEA2 /* CarouselAnimationItemViewWrapper.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1FF4EFE423C54C9B000B8DE3 /* CarouselAnimationItemViewWrapper.swift */; settings = {ATTRIBUTES = (Private, ); }; };
+		1FF4EF9723C548AA000B8DE3 /* CarouselAnimationFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF4EF9523C548AA000B8DE3 /* CarouselAnimationFramework.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
+		1FF4EFA223C549C6000B8DE3 /* CarouselAnimationBaseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFA123C549C6000B8DE3 /* CarouselAnimationBaseAnimation.swift */; };
+		1FF4EFA423C549E3000B8DE3 /* CarouselAnimationBaseAnimationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFA323C549E3000B8DE3 /* CarouselAnimationBaseAnimationContract.swift */; };
+		1FF4EFA723C54A02000B8DE3 /* CarouselAnimationBottomShadowAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFA623C54A02000B8DE3 /* CarouselAnimationBottomShadowAnimation.swift */; };
+		1FF4EFAA23C54A1C000B8DE3 /* CarouselAnimationNextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFA923C54A1C000B8DE3 /* CarouselAnimationNextAnimation.swift */; };
+		1FF4EFAD23C54A31000B8DE3 /* CarouselAnimationPreviousAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFAC23C54A31000B8DE3 /* CarouselAnimationPreviousAnimation.swift */; };
+		1FF4EFB023C54A66000B8DE3 /* CarouselAnimationSecondaryScaleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFAF23C54A66000B8DE3 /* CarouselAnimationSecondaryScaleAnimation.swift */; };
+		1FF4EFB323C54ADC000B8DE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFB223C54ADC000B8DE3 /* Extensions.swift */; };
+		1FF4EFB723C54B11000B8DE3 /* CarouselAnimationAnimationsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFB623C54B11000B8DE3 /* CarouselAnimationAnimationsHandler.swift */; };
+		1FF4EFB923C54B25000B8DE3 /* CarouselAnimationAnimationsHandlerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFB823C54B25000B8DE3 /* CarouselAnimationAnimationsHandlerContract.swift */; };
+		1FF4EFBC23C54B3D000B8DE3 /* CarouselAnimationMovementHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFBB23C54B3D000B8DE3 /* CarouselAnimationMovementHandler.swift */; };
+		1FF4EFBE23C54B54000B8DE3 /* CarouselAnimationMovementHandlerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFBD23C54B54000B8DE3 /* CarouselAnimationMovementHandlerContract.swift */; };
+		1FF4EFC123C54B6C000B8DE3 /* CarouselAnimationPagingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFC023C54B6C000B8DE3 /* CarouselAnimationPagingHandler.swift */; };
+		1FF4EFC423C54B84000B8DE3 /* CarouselAnimationPanDelegationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFC323C54B84000B8DE3 /* CarouselAnimationPanDelegationHandler.swift */; };
+		1FF4EFC723C54B9A000B8DE3 /* CarouselAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFC623C54B9A000B8DE3 /* CarouselAnimationView.swift */; };
+		1FF4EFC923C54BA9000B8DE3 /* CarouselAnimationViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFC823C54BA9000B8DE3 /* CarouselAnimationViewContract.swift */; };
+		1FF4EFCC23C54BBC000B8DE3 /* CarouselAnimationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFCB23C54BBC000B8DE3 /* CarouselAnimationViewModel.swift */; };
+		1FF4EFCF23C54BDC000B8DE3 /* CarouselAnimationValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFCE23C54BDC000B8DE3 /* CarouselAnimationValues.swift */; };
+		1FF4EFD123C54BEA000B8DE3 /* CarouselAnimationWrapperValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFD023C54BEA000B8DE3 /* CarouselAnimationWrapperValues.swift */; };
+		1FF4EFD423C54C12000B8DE3 /* CarouselAnimationScaleTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFD323C54C12000B8DE3 /* CarouselAnimationScaleTransformer.swift */; };
+		1FF4EFD623C54C22000B8DE3 /* CarouselAnimationTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFD523C54C22000B8DE3 /* CarouselAnimationTransformer.swift */; };
+		1FF4EFD823C54C32000B8DE3 /* CarouselAnimationXRotationTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFD723C54C32000B8DE3 /* CarouselAnimationXRotationTransformer.swift */; };
+		1FF4EFDA23C54C40000B8DE3 /* CarouselAnimationYTranslationTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFD923C54C40000B8DE3 /* CarouselAnimationYTranslationTransformer.swift */; };
+		1FF4EFDD23C54C59000B8DE3 /* CarouselAnimationWrapperTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFDC23C54C59000B8DE3 /* CarouselAnimationWrapperTransformer.swift */; };
+		1FF4EFE023C54C70000B8DE3 /* CarouselAnimationBottomShadowWrapperTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFDF23C54C70000B8DE3 /* CarouselAnimationBottomShadowWrapperTransformer.swift */; };
+		1FF4EFE323C54C8D000B8DE3 /* CarouselAnimationBottomShadowWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFE223C54C8D000B8DE3 /* CarouselAnimationBottomShadowWrapper.swift */; };
+		1FF4EFE523C54C9B000B8DE3 /* CarouselAnimationItemViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4EFE423C54C9B000B8DE3 /* CarouselAnimationItemViewWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1FF4EF9223C548AA000B8DE3 /* CarouselAnimationFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CarouselAnimationFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FF4EF9523C548AA000B8DE3 /* CarouselAnimationFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarouselAnimationFramework.h; sourceTree = "<group>"; };
 		1FF4EF9623C548AA000B8DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FF4EFA123C549C6000B8DE3 /* CarouselAnimationBaseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationBaseAnimation.swift; sourceTree = "<group>"; };
+		1FF4EFA323C549E3000B8DE3 /* CarouselAnimationBaseAnimationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationBaseAnimationContract.swift; sourceTree = "<group>"; };
+		1FF4EFA623C54A02000B8DE3 /* CarouselAnimationBottomShadowAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationBottomShadowAnimation.swift; sourceTree = "<group>"; };
+		1FF4EFA923C54A1C000B8DE3 /* CarouselAnimationNextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationNextAnimation.swift; sourceTree = "<group>"; };
+		1FF4EFAC23C54A31000B8DE3 /* CarouselAnimationPreviousAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationPreviousAnimation.swift; sourceTree = "<group>"; };
+		1FF4EFAF23C54A66000B8DE3 /* CarouselAnimationSecondaryScaleAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationSecondaryScaleAnimation.swift; sourceTree = "<group>"; };
+		1FF4EFB223C54ADC000B8DE3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1FF4EFB623C54B11000B8DE3 /* CarouselAnimationAnimationsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationAnimationsHandler.swift; sourceTree = "<group>"; };
+		1FF4EFB823C54B25000B8DE3 /* CarouselAnimationAnimationsHandlerContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationAnimationsHandlerContract.swift; sourceTree = "<group>"; };
+		1FF4EFBB23C54B3D000B8DE3 /* CarouselAnimationMovementHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationMovementHandler.swift; sourceTree = "<group>"; };
+		1FF4EFBD23C54B54000B8DE3 /* CarouselAnimationMovementHandlerContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationMovementHandlerContract.swift; sourceTree = "<group>"; };
+		1FF4EFC023C54B6C000B8DE3 /* CarouselAnimationPagingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationPagingHandler.swift; sourceTree = "<group>"; };
+		1FF4EFC323C54B84000B8DE3 /* CarouselAnimationPanDelegationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationPanDelegationHandler.swift; sourceTree = "<group>"; };
+		1FF4EFC623C54B9A000B8DE3 /* CarouselAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationView.swift; sourceTree = "<group>"; };
+		1FF4EFC823C54BA9000B8DE3 /* CarouselAnimationViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationViewContract.swift; sourceTree = "<group>"; };
+		1FF4EFCB23C54BBC000B8DE3 /* CarouselAnimationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationViewModel.swift; sourceTree = "<group>"; };
+		1FF4EFCE23C54BDC000B8DE3 /* CarouselAnimationValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationValues.swift; sourceTree = "<group>"; };
+		1FF4EFD023C54BEA000B8DE3 /* CarouselAnimationWrapperValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationWrapperValues.swift; sourceTree = "<group>"; };
+		1FF4EFD323C54C12000B8DE3 /* CarouselAnimationScaleTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationScaleTransformer.swift; sourceTree = "<group>"; };
+		1FF4EFD523C54C22000B8DE3 /* CarouselAnimationTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationTransformer.swift; sourceTree = "<group>"; };
+		1FF4EFD723C54C32000B8DE3 /* CarouselAnimationXRotationTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationXRotationTransformer.swift; sourceTree = "<group>"; };
+		1FF4EFD923C54C40000B8DE3 /* CarouselAnimationYTranslationTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationYTranslationTransformer.swift; sourceTree = "<group>"; };
+		1FF4EFDC23C54C59000B8DE3 /* CarouselAnimationWrapperTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationWrapperTransformer.swift; sourceTree = "<group>"; };
+		1FF4EFDF23C54C70000B8DE3 /* CarouselAnimationBottomShadowWrapperTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationBottomShadowWrapperTransformer.swift; sourceTree = "<group>"; };
+		1FF4EFE223C54C8D000B8DE3 /* CarouselAnimationBottomShadowWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationBottomShadowWrapper.swift; sourceTree = "<group>"; };
+		1FF4EFE423C54C9B000B8DE3 /* CarouselAnimationItemViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAnimationItemViewWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +100,180 @@
 		1FF4EF9423C548AA000B8DE3 /* CarouselAnimationFramework */ = {
 			isa = PBXGroup;
 			children = (
+				1FF4EFE123C54C82000B8DE3 /* Wrappers */,
+				1FF4EFD223C54BF8000B8DE3 /* Transformers */,
+				1FF4EFCD23C54BD1000B8DE3 /* Models */,
+				1FF4EFC523C54B8D000B8DE3 /* Main */,
+				1FF4EFB423C54AF6000B8DE3 /* Handlers */,
+				1FF4EF9F23C549A4000B8DE3 /* Animations */,
+				1FF4EFB123C54AD0000B8DE3 /* Extensions */,
 				1FF4EF9523C548AA000B8DE3 /* CarouselAnimationFramework.h */,
 				1FF4EF9623C548AA000B8DE3 /* Info.plist */,
 			);
 			path = CarouselAnimationFramework;
+			sourceTree = "<group>";
+		};
+		1FF4EF9F23C549A4000B8DE3 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFAE23C54A40000B8DE3 /* Secondary */,
+				1FF4EFAB23C54A25000B8DE3 /* Previous */,
+				1FF4EFA823C54A0F000B8DE3 /* Next */,
+				1FF4EFA023C549B0000B8DE3 /* Base */,
+				1FF4EFA523C549EF000B8DE3 /* BottomShadow */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		1FF4EFA023C549B0000B8DE3 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFA123C549C6000B8DE3 /* CarouselAnimationBaseAnimation.swift */,
+				1FF4EFA323C549E3000B8DE3 /* CarouselAnimationBaseAnimationContract.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		1FF4EFA523C549EF000B8DE3 /* BottomShadow */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFA623C54A02000B8DE3 /* CarouselAnimationBottomShadowAnimation.swift */,
+			);
+			path = BottomShadow;
+			sourceTree = "<group>";
+		};
+		1FF4EFA823C54A0F000B8DE3 /* Next */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFA923C54A1C000B8DE3 /* CarouselAnimationNextAnimation.swift */,
+			);
+			path = Next;
+			sourceTree = "<group>";
+		};
+		1FF4EFAB23C54A25000B8DE3 /* Previous */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFAC23C54A31000B8DE3 /* CarouselAnimationPreviousAnimation.swift */,
+			);
+			path = Previous;
+			sourceTree = "<group>";
+		};
+		1FF4EFAE23C54A40000B8DE3 /* Secondary */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFAF23C54A66000B8DE3 /* CarouselAnimationSecondaryScaleAnimation.swift */,
+			);
+			path = Secondary;
+			sourceTree = "<group>";
+		};
+		1FF4EFB123C54AD0000B8DE3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFB223C54ADC000B8DE3 /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1FF4EFB423C54AF6000B8DE3 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFC223C54B7A000B8DE3 /* Pan */,
+				1FF4EFBF23C54B62000B8DE3 /* Paging */,
+				1FF4EFBA23C54B31000B8DE3 /* Movement */,
+				1FF4EFB523C54B06000B8DE3 /* Animations */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		1FF4EFB523C54B06000B8DE3 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFB623C54B11000B8DE3 /* CarouselAnimationAnimationsHandler.swift */,
+				1FF4EFB823C54B25000B8DE3 /* CarouselAnimationAnimationsHandlerContract.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		1FF4EFBA23C54B31000B8DE3 /* Movement */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFBB23C54B3D000B8DE3 /* CarouselAnimationMovementHandler.swift */,
+				1FF4EFBD23C54B54000B8DE3 /* CarouselAnimationMovementHandlerContract.swift */,
+			);
+			path = Movement;
+			sourceTree = "<group>";
+		};
+		1FF4EFBF23C54B62000B8DE3 /* Paging */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFC023C54B6C000B8DE3 /* CarouselAnimationPagingHandler.swift */,
+			);
+			path = Paging;
+			sourceTree = "<group>";
+		};
+		1FF4EFC223C54B7A000B8DE3 /* Pan */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFC323C54B84000B8DE3 /* CarouselAnimationPanDelegationHandler.swift */,
+			);
+			path = Pan;
+			sourceTree = "<group>";
+		};
+		1FF4EFC523C54B8D000B8DE3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFC623C54B9A000B8DE3 /* CarouselAnimationView.swift */,
+				1FF4EFC823C54BA9000B8DE3 /* CarouselAnimationViewContract.swift */,
+				1FF4EFCB23C54BBC000B8DE3 /* CarouselAnimationViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1FF4EFCD23C54BD1000B8DE3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFCE23C54BDC000B8DE3 /* CarouselAnimationValues.swift */,
+				1FF4EFD023C54BEA000B8DE3 /* CarouselAnimationWrapperValues.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1FF4EFD223C54BF8000B8DE3 /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFDE23C54C67000B8DE3 /* BottomShadowWrapper */,
+				1FF4EFDB23C54C50000B8DE3 /* Wrapper */,
+				1FF4EFD323C54C12000B8DE3 /* CarouselAnimationScaleTransformer.swift */,
+				1FF4EFD523C54C22000B8DE3 /* CarouselAnimationTransformer.swift */,
+				1FF4EFD723C54C32000B8DE3 /* CarouselAnimationXRotationTransformer.swift */,
+				1FF4EFD923C54C40000B8DE3 /* CarouselAnimationYTranslationTransformer.swift */,
+			);
+			path = Transformers;
+			sourceTree = "<group>";
+		};
+		1FF4EFDB23C54C50000B8DE3 /* Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFDC23C54C59000B8DE3 /* CarouselAnimationWrapperTransformer.swift */,
+			);
+			path = Wrapper;
+			sourceTree = "<group>";
+		};
+		1FF4EFDE23C54C67000B8DE3 /* BottomShadowWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFDF23C54C70000B8DE3 /* CarouselAnimationBottomShadowWrapperTransformer.swift */,
+			);
+			path = BottomShadowWrapper;
+			sourceTree = "<group>";
+		};
+		1FF4EFE123C54C82000B8DE3 /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4EFE223C54C8D000B8DE3 /* CarouselAnimationBottomShadowWrapper.swift */,
+				1FF4EFE423C54C9B000B8DE3 /* CarouselAnimationItemViewWrapper.swift */,
+			);
+			path = Wrappers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -60,6 +284,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FF4EF9723C548AA000B8DE3 /* CarouselAnimationFramework.h in Headers */,
+				1F90C53223C55B1B0082CEA2 /* CarouselAnimationBottomShadowWrapper.swift in Headers */,
+				1F90C53323C55B1E0082CEA2 /* CarouselAnimationItemViewWrapper.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +321,7 @@
 				TargetAttributes = {
 					1FF4EF9123C548AA000B8DE3 = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -131,6 +358,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FF4EFDD23C54C59000B8DE3 /* CarouselAnimationWrapperTransformer.swift in Sources */,
+				1FF4EFDA23C54C40000B8DE3 /* CarouselAnimationYTranslationTransformer.swift in Sources */,
+				1FF4EFD823C54C32000B8DE3 /* CarouselAnimationXRotationTransformer.swift in Sources */,
+				1FF4EFAA23C54A1C000B8DE3 /* CarouselAnimationNextAnimation.swift in Sources */,
+				1FF4EFA723C54A02000B8DE3 /* CarouselAnimationBottomShadowAnimation.swift in Sources */,
+				1FF4EFB723C54B11000B8DE3 /* CarouselAnimationAnimationsHandler.swift in Sources */,
+				1FF4EFC723C54B9A000B8DE3 /* CarouselAnimationView.swift in Sources */,
+				1FF4EFA423C549E3000B8DE3 /* CarouselAnimationBaseAnimationContract.swift in Sources */,
+				1FF4EFB023C54A66000B8DE3 /* CarouselAnimationSecondaryScaleAnimation.swift in Sources */,
+				1FF4EFC123C54B6C000B8DE3 /* CarouselAnimationPagingHandler.swift in Sources */,
+				1FF4EFA223C549C6000B8DE3 /* CarouselAnimationBaseAnimation.swift in Sources */,
+				1FF4EFC923C54BA9000B8DE3 /* CarouselAnimationViewContract.swift in Sources */,
+				1FF4EFAD23C54A31000B8DE3 /* CarouselAnimationPreviousAnimation.swift in Sources */,
+				1FF4EFCC23C54BBC000B8DE3 /* CarouselAnimationViewModel.swift in Sources */,
+				1FF4EFCF23C54BDC000B8DE3 /* CarouselAnimationValues.swift in Sources */,
+				1FF4EFC423C54B84000B8DE3 /* CarouselAnimationPanDelegationHandler.swift in Sources */,
+				1FF4EFB923C54B25000B8DE3 /* CarouselAnimationAnimationsHandlerContract.swift in Sources */,
+				1FF4EFBC23C54B3D000B8DE3 /* CarouselAnimationMovementHandler.swift in Sources */,
+				1FF4EFE523C54C9B000B8DE3 /* CarouselAnimationItemViewWrapper.swift in Sources */,
+				1FF4EFE323C54C8D000B8DE3 /* CarouselAnimationBottomShadowWrapper.swift in Sources */,
+				1FF4EFD423C54C12000B8DE3 /* CarouselAnimationScaleTransformer.swift in Sources */,
+				1FF4EFB323C54ADC000B8DE3 /* Extensions.swift in Sources */,
+				1FF4EFD123C54BEA000B8DE3 /* CarouselAnimationWrapperValues.swift in Sources */,
+				1FF4EFE023C54C70000B8DE3 /* CarouselAnimationBottomShadowWrapperTransformer.swift in Sources */,
+				1FF4EFD623C54C22000B8DE3 /* CarouselAnimationTransformer.swift in Sources */,
+				1FF4EFBE23C54B54000B8DE3 /* CarouselAnimationMovementHandlerContract.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +513,7 @@
 		1FF4EF9B23C548AA000B8DE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = F8R3ZUBA5Q;
@@ -276,6 +530,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cal.CarouselAnimationFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -284,6 +539,7 @@
 		1FF4EF9C23C548AA000B8DE3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = F8R3ZUBA5Q;
