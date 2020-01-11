@@ -10,6 +10,11 @@ public struct CarouselAnimationViewModel {
     var numberOfVisibleViews: Int
     let totalSize: Int
     
+    internal init() {
+        numberOfVisibleViews = 0
+        totalSize = 0
+    }
+    
     public init(numberOfVisibleViews: Int, totalSize: Int) {
         self.numberOfVisibleViews = numberOfVisibleViews
         self.totalSize = totalSize

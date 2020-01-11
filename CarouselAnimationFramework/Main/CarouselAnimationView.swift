@@ -8,12 +8,15 @@
 
 import UIKit
 
+// MARK: Main class to implement.
 public class CarouselAnimationView: UIView {
-    private var views: [CarouselAnimationItemViewWrapper]?
-    private var model: CarouselAnimationViewModel?
+    // MARK: The views it will work in.
+    private var views: [CarouselAnimationItemViewWrapper] = Array()
+    // MARK: The model needed for library to work.
+    private var model: CarouselAnimationViewModel = CarouselAnimationViewModel()
     private var contract: CarouselAnimationViewContract?
     private var valuesModel: CarouselAnimationValues?
-    private var panHandler: CarouselAnimationPanDelegationHandler?
+    private var panHandler: CarouselAnimationPanDelegationHandler = CarouselAnimationPanDelegationHandler()
     private var isAnimationPlaying: Bool = false
     private var bottomShadowWrapper: CarouselAnimationBottomShadowWrapper?
     private var animationHandler: CarouselAnimationAnimationsHandler?
@@ -52,7 +55,7 @@ public class CarouselAnimationView: UIView {
         self.clearSubViewsIfNeeded()
         self.clipsToBounds = true
         self.views = Array()
-        self.pager = CarouselAnimationPagingHandler(viewModel: self.model!)
+        self.pager = CarouselAnimationPagingHandler(viewModel: self.model)
         self.animationHandler = CarouselAnimationAnimationsHandler(contract: self)
         self.initializeCarousel()
         if self.bottomShadowWrapper != nil {
@@ -76,11 +79,11 @@ public class CarouselAnimationView: UIView {
     }
     
     private func createViews() {
-        for i in 0..<self.model!.numberOfVisibleViews {
+        for i in 0..<self.model.numberOfVisibleViews {
             let view: UIView = self.contract!.bindView(index: i, view: UIView())
             let wrapper = CarouselAnimationItemViewWrapper(frame: view.frame)
             wrapper.initialize(child: view)
-            self.views!.append(wrapper)
+            self.views.append(wrapper)
             self.addSubview(wrapper)
             self.setWrapperConstraints(wrapper: wrapper)
             wrapper.center.x = self.center.x
@@ -92,7 +95,7 @@ public class CarouselAnimationView: UIView {
     
     private func calcualteOriginYForWrapper(wrapper: CarouselAnimationItemViewWrapper) -> CGFloat {
         let itemDistanceHeight: CGFloat = CGFloat(wrapper.frame.height) * 0.1
-        let wantedHeight = itemDistanceHeight * CGFloat(self.model!.numberOfVisibleViews)
+        let wantedHeight = itemDistanceHeight * CGFloat(self.model.numberOfVisibleViews)
         return wantedHeight
     }
         
@@ -103,29 +106,29 @@ public class CarouselAnimationView: UIView {
     }
     
     private func reOrderViewsOnScreen() {
-        if self.views!.count > 1 {
-            for i in stride(from: self.views!.count - 1, to: 0, by: -1) {
-                let view: CarouselAnimationItemViewWrapper = self.views![i]
+        if self.views.count > 1 {
+            for i in stride(from: self.views.count - 1, to: 0, by: -1) {
+                let view: CarouselAnimationItemViewWrapper = self.views[i]
                 self.bringSubviewToFront(view)
             }
         }
     }
     
     private func initializeViewsZPositions() {
-        for i in 0...self.views!.count - 1 {
-            let wrapper: CarouselAnimationItemViewWrapper = self.views![i]
+        for i in 0...self.views.count - 1 {
+            let wrapper: CarouselAnimationItemViewWrapper = self.views[i]
             let wrapperValues: CarouselAnimationWrapperValues = self.valuesModel!.getWrapperValuesByPosition(position: i)
             wrapper.layer.zPosition = wrapperValues.zPosition
         }
     }
     
     private func initializeValuesModel() {
-        self.valuesModel = CarouselAnimationValues(firstWrapper: self.getFirstWrapper(), size: self.model!.numberOfVisibleViews)
+        self.valuesModel = CarouselAnimationValues(firstWrapper: self.getFirstWrapper(), size: self.model.numberOfVisibleViews)
     }
     
     private func setWrapperTransforms() {
         var index: Int = 0
-        for wrapper in views! {
+        for wrapper in views {
             wrapper.initializeViewTransforms(valuesModel: self.valuesModel!.getWrapperValuesByPosition(position: index))
             index += 1
         }
@@ -143,15 +146,15 @@ public class CarouselAnimationView: UIView {
     }
     
     private func getFirstWrapper() -> CarouselAnimationItemViewWrapper {
-        return self.views![0]
+        return self.views[0]
     }
     
     private func getLastWrapper() -> CarouselAnimationItemViewWrapper {
-        return self.views![self.views!.count - 1]
+        return self.views[self.views.count - 1]
     }
     
     private func setTapDelegtaion() {
-        self.panHandler = CarouselAnimationPanDelegationHandler()
+//        self.panHandler = CarouselAnimationPanDelegationHandler()
         self.panGestureRecognizers = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_sender:)))
         self.panGestureRecognizers!.delegate = self
         self.addGestureRecognizer(self.panGestureRecognizers!)
@@ -166,33 +169,33 @@ public class CarouselAnimationView: UIView {
     }
     
     private func reOrderViewsAfterNext() {
-        let lastItemIndex: Int = self.views!.count - 1
+        let lastItemIndex: Int = self.views.count - 1
         let tempWrapper: CarouselAnimationItemViewWrapper = getFirstWrapper()
         for i in 0..<lastItemIndex {
             let nextViewIndex: Int = i + 1
-            let nextView: CarouselAnimationItemViewWrapper = self.views![nextViewIndex]
+            let nextView: CarouselAnimationItemViewWrapper = self.views[nextViewIndex]
             let nextViewValues: CarouselAnimationWrapperValues = self.valuesModel!.getWrapperValuesByPosition(position: i)
             nextView.setNewValuesModel(valuesModel: nextViewValues)
-            self.views![i] = nextView
+            self.views[i] = nextView
             if  nextViewIndex == lastItemIndex {
-                self.views![nextViewIndex] = tempWrapper
-                self.views![nextViewIndex].setNewValuesModel(valuesModel: self.valuesModel!.getLastWrapperValues())
+                self.views[nextViewIndex] = tempWrapper
+                self.views[nextViewIndex].setNewValuesModel(valuesModel: self.valuesModel!.getLastWrapperValues())
             }
         }
     }
     
     private func reOrderViewsAfterPrevious() {
         let tempWrapper: CarouselAnimationItemViewWrapper = getLastWrapper()
-        for i in stride(from: self.views!.count - 1, to: 0, by: -1) {
+        for i in stride(from: self.views.count - 1, to: 0, by: -1) {
             let nextViewIndex: Int = i - 1
-            let nextWrapper: CarouselAnimationItemViewWrapper = views![nextViewIndex]
+            let nextWrapper: CarouselAnimationItemViewWrapper = views[nextViewIndex]
             let nextWrapperValues: CarouselAnimationWrapperValues = valuesModel!.getWrapperValuesByPosition(position: i)
-            views![i] = nextWrapper
-            views![i].initializeViewTransforms(valuesModel: nextWrapperValues)
+            views[i] = nextWrapper
+            views[i].initializeViewTransforms(valuesModel: nextWrapperValues)
             if nextViewIndex == 0 {
                 let firstWrapperValues: CarouselAnimationWrapperValues = valuesModel!.getFirstWrapperValues()
-                views![nextViewIndex] = tempWrapper
-                views![nextViewIndex].initializeViewTransforms(valuesModel: firstWrapperValues)
+                views[nextViewIndex] = tempWrapper
+                views[nextViewIndex].initializeViewTransforms(valuesModel: firstWrapperValues)
             }
         }
     }
@@ -224,14 +227,14 @@ extension CarouselAnimationView : UIGestureRecognizerDelegate {
     @IBAction func handlePan(_sender: UIPanGestureRecognizer) {
         switch _sender.state {
             case .changed:
-                if self.panHandler!.isTracking() {
-                    self.panHandler!.setLastDetectedPoint(point: _sender.translation(in: self))
+                if self.panHandler.isTracking() {
+                    self.panHandler.setLastDetectedPoint(point: _sender.translation(in: self))
                     self.handleMoveEvent()
                 } else {
                 }
             case .ended:
                 self.handleMovementEnd()
-                self.panHandler!.resetPoints()
+                self.panHandler.resetPoints()
             default:
                 return
         }
@@ -239,16 +242,16 @@ extension CarouselAnimationView : UIGestureRecognizerDelegate {
     
     private func handleMoveEvent() {
         if isAnimationPlaying {
-            self.movementHandler!.handleMovementWhenAnimationPlaying(xDistance: self.panHandler!.getXDistance())
+            self.movementHandler!.handleMovementWhenAnimationPlaying(xDistance: self.panHandler.getXDistance())
         } else {
-            self.movementHandler!.handleMovementWhenAnimationNotPlaying(yDistance: self.panHandler!.getYDistance(), xDistance: self.panHandler!.getXDistance())
+            self.movementHandler!.handleMovementWhenAnimationNotPlaying(yDistance: self.panHandler.getYDistance(), xDistance: self.panHandler.getXDistance())
         }
     }
     
     private func handleMovementEnd() {
-        self.panHandler!.enableTracking()
+        self.panHandler.enableTracking()
         if !self.isAnimationPlaying {
-            self.resetWrappersTransforms(finalDistance: self.panHandler!.getYDistance())
+            self.resetWrappersTransforms(finalDistance: self.panHandler.getYDistance())
         }
     }
 }
@@ -275,12 +278,12 @@ extension CarouselAnimationView : CarouselAnimationMovementHandlerContract {
     }
     
     func addNextAnimationToStack() {
-        self.panHandler!.disableTracking()
+        self.panHandler.disableTracking()
         self.nextAnimationsWaiting += 1
     }
     
     func addPreviousAnimationToStack() {
-        self.panHandler!.disableTracking()
+        self.panHandler.disableTracking()
         self.previousAnimationsWaiting += 1
     }
 }
@@ -288,7 +291,7 @@ extension CarouselAnimationView : CarouselAnimationMovementHandlerContract {
 extension CarouselAnimationView : CarouselAnimationAnimationsHandlerContract {
 
     func onAnimationStartPlaying(isNext: Bool) {
-        self.panHandler!.disableTracking()
+        self.panHandler.disableTracking()
         self.isAnimationPlaying = true
         if isNext && self.bottomShadowWrapper != nil {
         self.animationHandler!.hideBottomShadowAnimation(bottomShadowWrapper: self.bottomShadowWrapper!)
@@ -296,8 +299,8 @@ extension CarouselAnimationView : CarouselAnimationAnimationsHandlerContract {
     }
     
     func preaperNextSecondaryAnimation() {
-        for i in stride(from: self.views!.count - 1, to: 0, by: -1) {
-            let wrapper: CarouselAnimationItemViewWrapper = self.views![i]
+        for i in stride(from: self.views.count - 1, to: 0, by: -1) {
+            let wrapper: CarouselAnimationItemViewWrapper = self.views[i]
             let nextItemIndex: Int = i - 1
             let nextValuesModel: CarouselAnimationWrapperValues = self.valuesModel!.getWrapperValuesByPosition(position: nextItemIndex)
             self.animationHandler!.playViewsNextSecondaryAnimation(wrapper: wrapper, toValues: nextValuesModel)
@@ -310,11 +313,11 @@ extension CarouselAnimationView : CarouselAnimationAnimationsHandlerContract {
     
     func preaperPreviousSecondaryAnimations() {
                 let lastWrapper: CarouselAnimationItemViewWrapper = getLastWrapper()
-                for i in stride(from: self.views!.count - 2, to: -1, by: -1) {
-                    let wrapper: CarouselAnimationItemViewWrapper = self.views![i]
+                for i in stride(from: self.views.count - 2, to: -1, by: -1) {
+                    let wrapper: CarouselAnimationItemViewWrapper = self.views[i]
                     var nextItemIndex: Int = i + 1
-                    if nextItemIndex >= views!.count {
-                        nextItemIndex = nextItemIndex - views!.count
+                    if nextItemIndex >= views.count {
+                        nextItemIndex = nextItemIndex - views.count
                     }
                     let nextValuesModel: CarouselAnimationWrapperValues = self.valuesModel!.getWrapperValuesByPosition(position: nextItemIndex)
                     self.animationHandler!.playViewsPreviousSecondaryAnimation(wrapper: wrapper, toValues: nextValuesModel)
