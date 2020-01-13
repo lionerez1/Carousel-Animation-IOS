@@ -84,6 +84,7 @@ public class CarouselAnimationView: UIView {
             let wrapper = CarouselAnimationItemViewWrapper(frame: view.frame)
             wrapper.initialize(child: view)
             self.views.append(wrapper)
+//            wrapper.isHidden = true
             self.addSubview(wrapper)
             self.setWrapperConstraints(wrapper: wrapper)
             wrapper.center.x = self.center.x
@@ -141,7 +142,7 @@ public class CarouselAnimationView: UIView {
     }
     
     private func getBottomShadowTopMargin() -> CGFloat {
-        let margin: CGFloat = (self.valuesModel!.originalHeight / 2) + (self.valuesModel!.originalHeight * 0.1)
+        let margin: CGFloat = (self.valuesModel!.originalHeight) + (self.valuesModel!.originalHeight / 2)
         return margin
     }
     
@@ -154,7 +155,6 @@ public class CarouselAnimationView: UIView {
     }
     
     private func setTapDelegtaion() {
-//        self.panHandler = CarouselAnimationPanDelegationHandler()
         self.panGestureRecognizers = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_sender:)))
         self.panGestureRecognizers!.delegate = self
         self.addGestureRecognizer(self.panGestureRecognizers!)
