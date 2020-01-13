@@ -10,10 +10,12 @@ import UIKit
 
 class CarouselAnimationMovementHandler {
     private let maximumDistance: CGFloat
+    private let maximumDistanceForPrevious: CGFloat
     private let contract: CarouselAnimationMovementHandlerContract
     
     init(maximumDistance: CGFloat, listener: CarouselAnimationMovementHandlerContract) {
         self.maximumDistance = maximumDistance
+        self.maximumDistanceForPrevious = maximumDistance / 2
         self.contract = listener
     }
     
@@ -65,7 +67,8 @@ class CarouselAnimationMovementHandler {
     }
     
     private func handlePreviousMovement(distance: CGFloat) {
-        if distance < self.maximumDistance {
+        
+        if distance < self.maximumDistanceForPrevious {
             self.contract.handlePreviousMovement(distance: distance)
         } else {
             self.contract.playPreviousAnimation()
