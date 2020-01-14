@@ -38,7 +38,7 @@ public class CarouselAnimationView: UIView {
     public func initialize(model: CarouselAnimationViewModel, bottomShadow: UIImageView, contract: CarouselAnimationViewContract) {
         self.model = model
         self.bottomShadowWrapper = CarouselAnimationBottomShadowWrapper(frame: bottomShadow.frame)
-        self.bottomShadowWrapper?.initialize(child: bottomShadow)
+        self.bottomShadowWrapper!.initialize(child: bottomShadow)
         self.contract = contract
         self._initialize()
     }
@@ -142,7 +142,7 @@ public class CarouselAnimationView: UIView {
     }
     
     private func getBottomShadowTopMargin() -> CGFloat {
-        let margin: CGFloat = (self.valuesModel!.originalHeight) + (self.valuesModel!.originalHeight / 2)
+        let margin: CGFloat = self.valuesModel!.originalHeight * 1.5
         return margin
     }
     
